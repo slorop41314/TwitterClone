@@ -101,19 +101,27 @@ class RegisterViewController: UIViewController {
         guard let username = usernameTextField.text else { return }
         guard let fullname = fullnameTextField.text else { return }
         
-        Auth.auth().createUser(withEmail: email, password: password) { (res, err) in
-            if let error = err {
-                print(error.localizedDescription)
-                return
-            }
-            guard let uid = res?.user.uid else { return }
-            let values = ["username" : username,"fullname" : fullname, "email" : email]
-            let ref = Database.database().reference().child("users").child(uid)
-            
-            ref.updateChildValues(values) { (err, dbref) in
-                print("Successfully updated child")
+        guard let imageData = userImage.jpegData(compressionQuality: 0.3) else { return }
+        let filename = NSUUID().uuidString
+        let storageRef = STORAGE_PROFILE_IMAGES.child(filename)
+        
+        storageRef.putData(imageData, metadata: nil) { (meta, err) in
+            storageRef.downloadURL { (url, err) in
+                guard let profileImageUrl = url?.absoluteString else { return }
+                Auth.auth().createUser(withEmail: email, password: password) { (res, err) in
+                    if let error = err {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    guard let uid = res?.user.uid else { return }
+                    let values = ["username" : username,"fullname" : fullname, "email" : email, "profileImageUrl" : profileImageUrl]
+                    REF_USERS.child(uid).updateChildValues(values) { (err, dbref) in
+                        print("Successfully updated child")
+                    }
+                }
             }
         }
+        
     }
     
     @objc func handleChoosePhoto() {
