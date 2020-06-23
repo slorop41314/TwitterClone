@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabViewController: UITabBarController {
 
@@ -25,11 +26,30 @@ class MainTabViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        checkUserAuth()
         configureViewControllers()
         configureUI()
     }
     
     // MARK: - Helper
+    
+    func checkUserAuth() {
+        if (Auth.auth().currentUser == nil){
+            DispatchQueue.main.async {
+                let nav = LoginViewController()
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true)
+            }
+        }
+    }
+    
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+        }catch let error {
+            print(error.localizedDescription)
+        }
+    }
     
     func configureUI() {
         view.addSubview(actionButton)
