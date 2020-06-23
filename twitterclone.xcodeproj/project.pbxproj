@@ -22,6 +22,7 @@
 		428C3614249660F000FD13B6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428C3613249660F000FD13B6 /* RegisterViewController.swift */; };
 		4292729F249FAE9A0079BD70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4292729E249FAE9A0079BD70 /* GoogleService-Info.plist */; };
 		429272A1249FCC730079BD70 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429272A0249FCC730079BD70 /* Constant.swift */; };
+		42DC647024A205DE002951D0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC646F24A205DE002951D0 /* AuthService.swift */; };
 		42DD9AF3249D227D009EF890 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD9AF2249D227D009EF890 /* Utilities.swift */; };
 		42DD9AF6249D2FD8009EF890 /* InputUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD9AF5249D2FD8009EF890 /* InputUtils.swift */; };
 		C619B285C5279D6DE967394F /* libPods-twitterclone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08431A489EC4D4A31862F743 /* libPods-twitterclone.a */; };
@@ -47,6 +48,7 @@
 		428C3613249660F000FD13B6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4292729E249FAE9A0079BD70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		429272A0249FCC730079BD70 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		42DC646F24A205DE002951D0 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		42DD9AF2249D227D009EF890 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		42DD9AF5249D2FD8009EF890 /* InputUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputUtils.swift; sourceTree = "<group>"; };
 		5B8B3CFC1311EA9D1CA87595 /* Pods-twitterclone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitterclone.release.xcconfig"; path = "Target Support Files/Pods-twitterclone/Pods-twitterclone.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		4260F0882493D20600897497 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				42DC646F24A205DE002951D0 /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				4260F0912493E02200897497 /* ExploreViewController.swift in Sources */,
 				4260F08F2493DFFA00897497 /* FeedViewController.swift in Sources */,
 				4260F08D2493D38700897497 /* MainTabViewController.swift in Sources */,
+				42DC647024A205DE002951D0 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
