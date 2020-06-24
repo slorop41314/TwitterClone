@@ -106,7 +106,10 @@ class RegisterViewController: UIViewController {
                 print(error)
                 return 
             }
-            print("Success register user")
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            guard let tab = window.rootViewController as? MainTabViewController else { return }
+            tab.checkUserAuthAndConfigure()
+            self.dismiss(animated: true, completion: nil)
         }
         
         

@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.twitterBlue, for: .normal)
         button.backgroundColor = .white
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -62,6 +63,21 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Selector
+    
+    @objc func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passTextField.text else { return }
+        
+        AuthService.shared.logUserIn(withEmail: email, password: password) { (res, err) in
+            if let error = err {
+                print(error.localizedDescription)
+            }
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            guard let tab = window.rootViewController as? MainTabViewController else { return }
+            tab.checkUserAuthAndConfigure()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
     @objc func handleSignUp() {
         let vc = RegisterViewController()

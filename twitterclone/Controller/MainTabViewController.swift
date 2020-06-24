@@ -25,21 +25,21 @@ class MainTabViewController: UITabBarController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        checkUserAuth()
-        configureViewControllers()
-        configureUI()
+        checkUserAuthAndConfigure()
     }
     
     // MARK: - Helper
     
-    func checkUserAuth() {
+    func checkUserAuthAndConfigure() {
         if (Auth.auth().currentUser == nil){
             DispatchQueue.main.async {
                 let nav = LoginViewController()
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true)
             }
+        }else {
+            configureViewControllers()
+            configureUI()
         }
     }
     
