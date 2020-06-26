@@ -13,6 +13,14 @@ class MainTabViewController: UITabBarController {
 
     // MARK: - Properties
     
+    var user: User? {
+        didSet {
+            guard let nav = viewControllers?[0] as? UINavigationController else { return }
+            guard let feed = nav.viewControllers.first as? FeedViewController else { return }
+            feed.user = user
+        }
+    }
+    
     let actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
@@ -30,6 +38,12 @@ class MainTabViewController: UITabBarController {
     
     // MARK: - Helper
     
+    func fetchUserData() {
+        UserService.shared.getUserData { (user) in
+            self.user = user
+        }
+    }
+    
     func checkUserAuthAndConfigure() {
         if (Auth.auth().currentUser == nil){
             DispatchQueue.main.async {
@@ -40,6 +54,7 @@ class MainTabViewController: UITabBarController {
         }else {
             configureViewControllers()
             configureUI()
+            fetchUserData()
         }
     }
     
@@ -60,7 +75,7 @@ class MainTabViewController: UITabBarController {
         let feed = FeedViewController()
         let feedNav = templateNavigationController(tabImage: UIImage(systemName: "house"), rootController: feed)
         let explore = ExploreViewController()
-        let exploreNav = templateNavigationController(tabImage: UIImage(systemName: "search"), rootController: explore)
+        let exploreNav = templateNavigationController(tabImage: UIImage(systemName: "magnifyingglass"), rootController: explore)
         
         let conversation = ConversationViewController()
         let conversationNav = templateNavigationController(tabImage: UIImage(systemName: "message"), rootController: conversation)

@@ -3,7 +3,7 @@ platform :ios, '13.0'
 
 target 'twitterclone' do
   # Comment the next line if you don't want to use dynamic frameworks
-  # use_frameworks!
+  use_frameworks!
 
   # Pods for twitterclone
 	pod 'Firebase/Auth'
@@ -11,5 +11,5 @@ target 'twitterclone' do
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
 	pod 'Firebase/Firestore'
-
+  pod 'SDWebImage', '~> 5.0'
 end
