@@ -98,7 +98,7 @@ class RegisterViewController: UIViewController {
         }
         guard let email = emailTextField.text else { return }
         guard let password = passTextField.text else { return }
-        guard let username = usernameTextField.text else { return }
+        guard let username = usernameTextField.text?.lowercased() else { return }
         guard let fullname = fullnameTextField.text else { return }
         let credentials = AuthCredentials(fullname: fullname, email: email, username: username, password: password, profileImage: userImage)
         AuthService.shared.registerUser(userData: credentials) { (err, ref) in

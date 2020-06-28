@@ -39,7 +39,8 @@ class MainTabViewController: UITabBarController {
     // MARK: - API
     
     func fetchUserData() {
-        UserService.shared.getUserData { (user) in
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserService.shared.getUserData(uid: uid) { (user) in
             self.user = user
         }
     }
@@ -84,7 +85,7 @@ class MainTabViewController: UITabBarController {
         actionButton.layer.cornerRadius = 56/2
     }
     func configureViewControllers() {
-        let feed = FeedViewController()
+        let feed = FeedViewController(collectionViewLayout: UICollectionViewFlowLayout())
         let feedNav = templateNavigationController(tabImage: UIImage(systemName: "house"), rootController: feed)
         let explore = ExploreViewController()
         let exploreNav = templateNavigationController(tabImage: UIImage(systemName: "magnifyingglass"), rootController: explore)
@@ -102,6 +103,7 @@ class MainTabViewController: UITabBarController {
         let nav = UINavigationController(rootViewController: rootController)
         nav.tabBarItem.image = tabImage
         nav.navigationBar.tintColor = .white
+        nav.navigationBar.isTranslucent = false
         return nav
     }
 

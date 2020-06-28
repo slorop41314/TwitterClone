@@ -21,11 +21,7 @@ class UploadTweetViewController: UIViewController {
     }()
     
     private let profileImage: UIImageView = {
-        let img = UIImageView()
-        img.setDimensions(width: 64, height: 64)
-        img.layer.cornerRadius = 64/2
-        img.backgroundColor = .twitterBlue
-        img.layer.masksToBounds = true
+        let img = ProfileImage().medium()
         return img
     }()
     
