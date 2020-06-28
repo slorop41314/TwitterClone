@@ -17,7 +17,15 @@ class FeedViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchTweetData()
         configureUI()
+    }
+    
+    // MARK: - API
+    func fetchTweetData() {
+        TweetService.shared.fetchTweets { (tweets) in
+            print(tweets)
+        }
     }
     
     // MARK: - Helper
@@ -25,7 +33,6 @@ class FeedViewController: UIViewController {
     func configureUI() {
         view.backgroundColor = .white
         navigationItem.title = "Feed"
-        
     }
     
     func configureLeftBarItem() {

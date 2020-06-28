@@ -16,7 +16,7 @@ struct AuthCredentials {
     let profileImage: UIImage
 }
 
-class AuthService {
+struct AuthService {
     static let shared = AuthService()
     
     func registerUser(userData: AuthCredentials, completion: @escaping(Error?, DatabaseReference)-> Void){

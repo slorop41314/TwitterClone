@@ -25,8 +25,8 @@ class MainTabViewController: UITabBarController {
         let button = UIButton(type: .system)
         button.tintColor = .white
         button.backgroundColor = .twitterBlue
-        button.setImage(UIImage(systemName: "message"), for: .normal)
-        
+        button.setImage(UIImage(named: "new_tweet"), for: .normal)
+        button.addTarget(nil, action: #selector(onTapNewTweet), for: .touchUpInside)
         return button
     }()
     
@@ -36,7 +36,7 @@ class MainTabViewController: UITabBarController {
         checkUserAuthAndConfigure()
     }
     
-    // MARK: - Helper
+    // MARK: - API
     
     func fetchUserData() {
         UserService.shared.getUserData { (user) in
@@ -65,6 +65,18 @@ class MainTabViewController: UITabBarController {
             print(error.localizedDescription)
         }
     }
+    
+    // MARK: - Selector
+    
+    @objc func onTapNewTweet() {
+        guard let user = user else { return }
+        let vc = UploadTweetViewController(user: user)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated:  true)
+    }
+    
+    // MARK: - Helper
     
     func configureUI() {
         view.addSubview(actionButton)

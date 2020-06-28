@@ -8,7 +8,7 @@
 
 import Firebase
 
-class UserService {
+struct UserService {
     static let shared = UserService()
     
     func getUserData(completion: @escaping(User) -> Void) {
