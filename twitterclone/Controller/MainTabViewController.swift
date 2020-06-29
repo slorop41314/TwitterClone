@@ -102,8 +102,8 @@ class MainTabViewController: UITabBarController {
     func templateNavigationController(tabImage : UIImage?, rootController : UIViewController) -> UIViewController {
         let nav = UINavigationController(rootViewController: rootController)
         nav.tabBarItem.image = tabImage
-        nav.navigationBar.tintColor = .white
-        nav.navigationBar.isTranslucent = false
+//        nav.navigationBar.tintColor = .white
+//        nav.navigationBar.isTranslucent = false
         return nav
     }
 

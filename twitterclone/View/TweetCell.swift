@@ -8,29 +8,36 @@
 
 import UIKit
 
+protocol TweetCellDelegate: class {
+    func handleProfileImageTapped()
+}
 class TweetCell : UICollectionViewCell {
     
     // MARK: - Properties
     
+    weak var delegate: TweetCellDelegate?
     var tweet: Tweet? {
         didSet {
             configure()
         }
     }
     
-    var profileImageView: UIImageView = {
+    private lazy var profileImageView: UIImageView = {
         let img = ProfileImage().medium()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapProfileImage))
+        img.addGestureRecognizer(tap)
+        img.isUserInteractionEnabled = true
         return img
     }()
     
-    var captionLabel: UILabel = {
+    private var captionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 0
         return label
     }()
     
-    var infoLabel = UILabel()
+    private var infoLabel = UILabel()
     
     private lazy var commentButton: UIButton = {
         let btn = Button().smallButtonWithImage(icon: UIImage(systemName: "bubble.right")!)
@@ -107,6 +114,10 @@ class TweetCell : UICollectionViewCell {
     
     @objc func handleTapShare() {
         print("Share")
+    }
+    
+    @objc func handleTapProfileImage() {
+        self.delegate?.handleProfileImageTapped()
     }
     
     // MARK: - Configure

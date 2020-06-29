@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4215941924A8F4CF0029C66B /* ProfileCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4215941824A8F4CF0029C66B /* ProfileCollectionViewController.swift */; };
 		421B8FC124A8510700299ABA /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421B8FC024A8510700299ABA /* TweetCell.swift */; };
 		421B8FC324A856E400299ABA /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421B8FC224A856E400299ABA /* Image.swift */; };
 		421B8FC524A85C4900299ABA /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421B8FC424A85C4900299ABA /* Button.swift */; };
@@ -26,6 +27,7 @@
 		4260F0952493E05300897497 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260F0942493E05300897497 /* ConversationViewController.swift */; };
 		428C36122496608C00FD13B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428C36112496608C00FD13B6 /* LoginViewController.swift */; };
 		428C3614249660F000FD13B6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428C3613249660F000FD13B6 /* RegisterViewController.swift */; };
+		428CC37024AA4A13000B4FFB /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428CC36F24AA4A13000B4FFB /* ProfileHeaderView.swift */; };
 		4292729F249FAE9A0079BD70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4292729E249FAE9A0079BD70 /* GoogleService-Info.plist */; };
 		429272A1249FCC730079BD70 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429272A0249FCC730079BD70 /* Constant.swift */; };
 		42DC647024A205DE002951D0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC646F24A205DE002951D0 /* AuthService.swift */; };
@@ -39,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		18F9D4C1DB408A6A5B366228 /* Pods-twitterclone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitterclone.debug.xcconfig"; path = "Target Support Files/Pods-twitterclone/Pods-twitterclone.debug.xcconfig"; sourceTree = "<group>"; };
+		4215941824A8F4CF0029C66B /* ProfileCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewController.swift; sourceTree = "<group>"; };
 		421B8FC024A8510700299ABA /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		421B8FC224A856E400299ABA /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		421B8FC424A85C4900299ABA /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		4260F0942493E05300897497 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		428C36112496608C00FD13B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		428C3613249660F000FD13B6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		428CC36F24AA4A13000B4FFB /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		4292729E249FAE9A0079BD70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		429272A0249FCC730079BD70 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		42DC646F24A205DE002951D0 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -144,10 +148,8 @@
 		4260F0852493D1ED00897497 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				42DD9AF5249D2FD8009EF890 /* Input.swift */,
 				421B8FC024A8510700299ABA /* TweetCell.swift */,
-				421B8FC224A856E400299ABA /* Image.swift */,
-				421B8FC424A85C4900299ABA /* Button.swift */,
+				428CC36F24AA4A13000B4FFB /* ProfileHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,6 +173,7 @@
 				428C36112496608C00FD13B6 /* LoginViewController.swift */,
 				428C3613249660F000FD13B6 /* RegisterViewController.swift */,
 				42E4EBC724A711F000E788B5 /* UploadTweetViewController.swift */,
+				4215941824A8F4CF0029C66B /* ProfileCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,6 +201,9 @@
 		42DD9AF4249D2FBC009EF890 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				42DD9AF5249D2FD8009EF890 /* Input.swift */,
+				421B8FC224A856E400299ABA /* Image.swift */,
+				421B8FC424A85C4900299ABA /* Button.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 				428C3614249660F000FD13B6 /* RegisterViewController.swift in Sources */,
 				42DD9AF3249D227D009EF890 /* Utilities.swift in Sources */,
 				4260F0952493E05300897497 /* ConversationViewController.swift in Sources */,
+				4215941924A8F4CF0029C66B /* ProfileCollectionViewController.swift in Sources */,
 				425D92E424A5FAC100C905D3 /* User.swift in Sources */,
 				42DD9AF6249D2FD8009EF890 /* Input.swift in Sources */,
 				4260F0712493BD4F00897497 /* AppDelegate.swift in Sources */,
@@ -337,6 +344,7 @@
 				421B8FC124A8510700299ABA /* TweetCell.swift in Sources */,
 				4260F0732493BD4F00897497 /* SceneDelegate.swift in Sources */,
 				4227E7C32494D72300E2DDA4 /* Extensions.swift in Sources */,
+				428CC37024AA4A13000B4FFB /* ProfileHeaderView.swift in Sources */,
 				4260F0932493E03500897497 /* NotificationViewController.swift in Sources */,
 				429272A1249FCC730079BD70 /* Constant.swift in Sources */,
 				4260F0912493E02200897497 /* ExploreViewController.swift in Sources */,
