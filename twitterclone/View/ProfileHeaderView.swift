@@ -11,6 +11,8 @@ import UIKit
 class ProfileHeaderView: UICollectionReusableView {
     // MARK: - Properties
     
+    private let filterTab = ProfileFilterView()
+    
     private lazy var containerView: UIView = {
         let view = UIView()
         view.addSubview(backButton)
@@ -66,6 +68,12 @@ class ProfileHeaderView: UICollectionReusableView {
         label.numberOfLines = 3
         return label
     }()
+    
+    private let underlineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .twitterBlue
+        return view
+    }()
     // MARK: - Selectors
     
     @objc func handleBackButton() {
@@ -79,7 +87,11 @@ class ProfileHeaderView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        filterTab.delegate = self
+        configureUI()
+    }
+    
+    func configureUI() {
         addSubview(containerView)
         containerView.anchor(top : topAnchor, left: leftAnchor, right: rightAnchor, height : 108)
         
@@ -101,9 +113,31 @@ class ProfileHeaderView: UICollectionReusableView {
         addSubview(stack)
         stack.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 16, paddingLeft: 16)
         
+        addSubview(filterTab)
+               filterTab.anchor(left: leftAnchor,bottom: bottomAnchor, right: rightAnchor,height: 40)
+        
+        addSubview(underlineView)
+        underlineView.anchor(left: leftAnchor,bottom: bottomAnchor, width: frame.width / 3,height: 2)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+
+// MARK: - ProfileFilterDelegate
+extension ProfileHeaderView: ProfileFilterDelegate {
+    func filterView(_ view: ProfileFilterView, didSelect indexPath: IndexPath) {
+        guard let cell = view.collectionView.cellForItem(at: indexPath) as? ProfileTabViewCell else { return }
+        
+        let xPos = cell.frame.origin.x
+        
+        UIView.animate(withDuration: 0.3) {
+            self.underlineView.frame.origin.x = xPos
+        }
+        
+    }
+    
+    
 }

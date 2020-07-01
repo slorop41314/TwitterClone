@@ -17,6 +17,7 @@ class ProfileCollectionViewController: UICollectionViewController {
 
     // MARK: - Properties
     
+    
     // MARK: - Lifecycle
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,6 +73,6 @@ extension ProfileCollectionViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: view.frame.width, height: 100)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 250)
+        return CGSize(width: view.frame.width, height: 350)
     }
 }
